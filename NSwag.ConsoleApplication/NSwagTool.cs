@@ -28,7 +28,7 @@ public class NSwagTool
             default:
                 throw new ArgumentOutOfRangeException(nameof(generatorSelection), generatorSelection, null);
         }
-        
+
         await File.WriteAllTextAsync(filePath + ".cs", code);
     }
 }

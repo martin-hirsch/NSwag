@@ -19,6 +19,7 @@ public class NSwagControllerGenerator
             },
             GenerateClientInterfaces = true,
             ControllerStyle = CSharpControllerStyle.Abstract,
+            UseActionResultType = true,
             ClassName = "NSwag"
         };
 
