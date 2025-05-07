@@ -15,7 +15,8 @@ public class NSwagControllerGenerator
             CSharpGeneratorSettings =
             {
                 Namespace = @namespace,
-                ClassStyle = CSharpClassStyle.Record
+                ClassStyle = CSharpClassStyle.Record,
+                GenerateNativeRecords = true
             },
             GenerateClientInterfaces = true,
             ControllerStyle = CSharpControllerStyle.Abstract,

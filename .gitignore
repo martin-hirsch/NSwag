@@ -474,5 +474,4 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
-
-/.idea/.idea.NSwag/.idea/projectSettingsUpdater.xml
+/.idea/*

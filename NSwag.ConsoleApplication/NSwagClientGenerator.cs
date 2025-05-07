@@ -14,10 +14,13 @@ public class NSwagClientGenerator
             CSharpGeneratorSettings =
             {
                 Namespace = @namespace,
-                ClassStyle = CSharpClassStyle.Record
+                ClassStyle = CSharpClassStyle.Record,
+                GenerateNativeRecords = true,
             },
             GenerateClientInterfaces = true,
-            ClassName = "NSwag"
+            UseHttpClientCreationMethod = true,
+            ClassName = "NSwagClient",
+            InjectHttpClient = false
         };
 
         _generator = new(document, cSharpClientGeneratorSettings);
