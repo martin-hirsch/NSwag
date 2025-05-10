@@ -21,10 +21,11 @@ public class NSwagControllerGenerator
             GenerateClientInterfaces = true,
             ControllerStyle = CSharpControllerStyle.Abstract,
             UseActionResultType = true,
-            ClassName = "NSwag"
+            ClassName = "NSwag",
+            CodeGeneratorSettings = { TypeNameGenerator = new SuffixTypeNameGenerator("Contract") }
         };
 
-        _generator = new(document, cSharpControllerGeneratorSettings);
+        _generator = new(document: document, settings: cSharpControllerGeneratorSettings);
     }
 
     public string GenerateFile()

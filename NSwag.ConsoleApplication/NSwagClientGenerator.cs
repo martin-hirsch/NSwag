@@ -20,7 +20,8 @@ public class NSwagClientGenerator
             GenerateClientInterfaces = true,
             UseHttpClientCreationMethod = true,
             ClassName = "NSwagClient",
-            InjectHttpClient = false
+            InjectHttpClient = false,
+            CodeGeneratorSettings = { TypeNameGenerator = new SuffixTypeNameGenerator("Contract") }
         };
 
         _generator = new(document, cSharpClientGeneratorSettings);
