@@ -23,6 +23,7 @@ public class NSwagClientGenerator
             UseHttpClientCreationMethod = true,
             ClassName = "NSwagClient",
             InjectHttpClient = false,
+            WrapResponses = true
         };
 
         _generator = new(document, cSharpClientGeneratorSettings);
