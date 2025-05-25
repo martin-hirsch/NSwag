@@ -17,7 +17,7 @@ public class NSwagControllerGenerator
                 Namespace = @namespace,
                 ClassStyle = CSharpClassStyle.Record,
                 GenerateNativeRecords = true,
-                DateType = "DateOnly"
+                DateType = "DateOnly",
             },
             GenerateClientInterfaces = true,
             ControllerStyle = CSharpControllerStyle.Abstract,

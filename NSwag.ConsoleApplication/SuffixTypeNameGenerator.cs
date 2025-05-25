@@ -10,6 +10,8 @@ public class SuffixTypeNameGenerator(string suffix)
 {
     private readonly string _suffix = suffix;
 
+    private readonly Dictionary<string, int> _typeNameCounts = [];
+
     protected virtual string Generate(JsonSchema schema, string? typeNameHint)
     {
         if (string.IsNullOrEmpty(typeNameHint) && schema.HasTypeNameTitle)
@@ -60,7 +62,27 @@ public class SuffixTypeNameGenerator(string suffix)
             typeName += suffix;
         }
 
-        return typeName;
+        var baseTypeName = typeName;
+        var finalTypeName = baseTypeName;
+
+        if (reservedTypeNames.Contains(finalTypeName) || _reservedTypeNames.Contains(finalTypeName))
+        {
+            var count = _typeNameCounts.GetValueOrDefault(key: baseTypeName, 1);
+
+            do
+            {
+                count++;
+                finalTypeName = baseTypeName + count;
+            } while (reservedTypeNames.Contains(finalTypeName) || _reservedTypeNames.Contains(finalTypeName));
+
+            _typeNameCounts[baseTypeName] = count;
+        }
+        else
+        {
+            _typeNameCounts[baseTypeName] = 1;
+        }
+
+        return finalTypeName;
     }
 
     private static readonly char[] _typeNameHintCleanupChars = ['[', ']', '<', '>', ',', ' '];

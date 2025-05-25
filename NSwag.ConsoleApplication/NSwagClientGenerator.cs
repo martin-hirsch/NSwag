@@ -17,13 +17,12 @@ public class NSwagClientGenerator
                 ClassStyle = CSharpClassStyle.Record,
                 GenerateNativeRecords = true,
                 TypeNameGenerator = new SuffixTypeNameGenerator("Contract"),
-                DateType = "DateOnly"
+                DateType = "DateOnly",
             },
             GenerateClientInterfaces = true,
             UseHttpClientCreationMethod = true,
             ClassName = "NSwagClient",
             InjectHttpClient = false,
-            WrapResponses = true
         };
 
         _generator = new(document, cSharpClientGeneratorSettings);
